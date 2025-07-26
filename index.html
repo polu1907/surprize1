@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Typewriter Surprise</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    body {
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)),
+        url('https://images.hdqwalls.com/wallpapers/fc-barcelona-hd.jpg') center/cover no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Courier New', Courier, monospace;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+      white-space: pre-wrap;
+    }
+    #typewriter {
+      font-size: 1.6rem;
+      line-height: 1.5;
+      border-right: 3px solid #fff;
+      animation: blinkCursor 0.7s infinite step-end;
+      max-width: 800px;
+    }
+    @keyframes blinkCursor {
+      from { border-color: #fff; }
+      to { border-color: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div id="typewriter">Loading surprise...</div>
+
+  <script>
+    const message = `Hey👋🏼 red flag🚩️ 
+
+
+From day one, you've been more than a friend. Every laugh we shared through late-night chats was truly special to me😊
+
+
+I hope you love this surprise as much as I loved creating it for you!
+
+for a true Barcelona fan who loves more than anything else in this world! 💙❤️
+
+
+❤️ With love,
+from a wellwisher😊
+
+`;
+    
+    const loadingText = `Loading surprise...
+
+`;
+
+    const el = document.getElementById('typewriter');
+    el.textContent = ""; // Clear the loading text
+    let i = 0;
+    function typeNext() {
+      if (i < message.length) {
+        el.textContent += message.charAt(i++);
+        setTimeout(typeNext, 50);
+      } else {
+        el.style.borderRight = 'none';
+      }
+    }
+    window.onload = typeNext;
+  </script>
+</body>
+</html>
+
